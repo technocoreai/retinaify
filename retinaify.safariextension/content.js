@@ -14,7 +14,7 @@ var domainReplacers = {
 var globalReplacers = [
     function() {
         $("img[src*='gravatar.com/avatar/'][data-retinaified!='true']").each(function(_, img) {
-            img.src = img.src.replace(/(&|\?)s=(\d+)/, function(_, sep, size) {
+            img.src = img.src.replace(/(&|\?)s=(\d+)/g, function(_, sep, size) {
                 return sep + "s=" + (2 * size);
             });
             $.attr(img, "data-retinaified", "true")
